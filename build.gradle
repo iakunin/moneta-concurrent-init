@@ -1,0 +1,39 @@
+plugins {
+    id 'java'
+    id 'idea'
+    id 'org.springframework.boot' version '2.2.1.RELEASE'
+    id 'io.spring.dependency-management' version '1.0.8.RELEASE'
+}
+
+group = 'dev.iakunin'
+sourceCompatibility = JavaVersion.VERSION_11
+targetCompatibility = JavaVersion.VERSION_11
+
+configurations {
+    developmentOnly
+    runtimeClasspath {
+        extendsFrom developmentOnly
+    }
+    compileOnly {
+        extendsFrom annotationProcessor
+    }
+}
+
+repositories {
+    mavenLocal()
+    mavenCentral()
+    jcenter()
+}
+
+dependencies {
+    implementation 'org.javamoney:moneta:1.3'
+    implementation 'org.springframework.boot:spring-boot-starter-web'
+}
+
+springBoot {
+    buildInfo {
+        properties {
+            version = version
+        }
+    }
+}
