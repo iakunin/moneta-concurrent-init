@@ -1,7 +1,7 @@
 package dev.iakunin.monetatest;
 
-import java.math.BigDecimal;
-import org.javamoney.moneta.Money;
+import javax.money.Monetary;
+import javax.money.MonetaryAmount;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.scheduling.annotation.EnableScheduling;
@@ -20,8 +20,12 @@ public class MonetaTestApplication {
         @Override
         @Scheduled(cron = "* * * * * *")
         public void run() {
-            final Money money = Money.of(BigDecimal.valueOf(100), "USD");
-            System.out.println("money = " + money);
+            final MonetaryAmount amount = Monetary.getDefaultAmountFactory()
+                .setCurrency("USD")
+                .setNumber(100L)
+                .create();
+
+            System.out.println("amount = " + amount);
         }
     }
 }
