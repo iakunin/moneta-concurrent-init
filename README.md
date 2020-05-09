@@ -1,11 +1,10 @@
 # moneta-concurrent-init
 
-This repo is a minimal-reproducible-example for a following StackOverflow question: 
-https://stackoverflow.com/q/61465836/3456163
+This repo is a minimal-reproducible-example for a following StackOverflow question: https://stackoverflow.com/q/61465836/3456163
 
 ## Run
 
-A version without concurrent init:
+A version without concurrent init (completed successfully):
 ```bash
 docker run -it --rm iakunin/moneta-concurrent-init
 ```
