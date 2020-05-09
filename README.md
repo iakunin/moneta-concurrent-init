@@ -14,6 +14,8 @@ A version with concurrent init (`No MonetaryAmountsSingletonSpi loaded` error):
 docker run -it --rm --env SPRING_PROFILES_ACTIVE=race-condition iakunin/moneta-concurrent-init
 ```
 
+__Important note__: It may take several runs to reproduce the error. Just try again if there is no error.
+
 ## Build
 
 To build a jar from sources use following command (you must have [docker](https://docs.docker.com/get-docker/) installed):
