@@ -9,7 +9,7 @@ build:
 	bash bin/gradle_in_docker.sh clean -Pversion=$(VERSION) build
 
 docker-build:
-	docker build -t iakunin/moneta-test:$(VERSION) .
+	docker build -t iakunin/moneta-concurrent-init:$(VERSION) .
 
 docker-push:
-	docker push iakunin/moneta-test:$(VERSION)
+	docker push iakunin/moneta-concurrent-init:$(VERSION)
