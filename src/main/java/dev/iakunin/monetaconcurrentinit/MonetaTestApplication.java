@@ -41,7 +41,7 @@ public class MonetaTestApplication {
         @Override
         public void run(String... args) {
             IntStream.range(0, 100_000).parallel().forEach(i -> {
-                var monetaryAmount = Monetary.getDefaultAmountFactory()
+                MonetaryAmount monetaryAmount = Monetary.getDefaultAmountFactory()
                     .setCurrency("EUR")
                     .setNumber(1)
                     .create();
@@ -53,7 +53,8 @@ public class MonetaTestApplication {
                 }
             });
 
-            log.error("You should never be here! Try to start the app again.");
+            log.error("`No MonetaryAmountsSingletonSpi loaded` error is not reproduced.");
+            log.error("Try to start the app again.");
         }
     }
 
@@ -69,7 +70,7 @@ public class MonetaTestApplication {
         @Override
         public void run(String... args) {
             IntStream.range(0, 100_000).parallel().forEach(i -> {
-                var monetaryAmount = amountFactory
+                MonetaryAmount monetaryAmount = amountFactory
                     .setCurrency("EUR")
                     .setNumber(1)
                     .create();

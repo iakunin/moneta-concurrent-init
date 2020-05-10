@@ -8,9 +8,14 @@ tag:
 build:
 	bash bin/gradle_in_docker.sh clean -Pversion=$(VERSION) build
 
-docker-build:
-	docker build -t iakunin/moneta-concurrent-init:$(VERSION) -t iakunin/moneta-concurrent-init:latest .
+docker-build-java11:
+	docker build -t iakunin/moneta-concurrent-init:java11 -f Dockerfile-java11 .
 
-docker-push:
-	docker push iakunin/moneta-concurrent-init:$(VERSION) && \
-	docker push iakunin/moneta-concurrent-init:latest
+docker-push-java11:
+	docker push iakunin/moneta-concurrent-init:java11
+
+docker-build-java8:
+	docker build -t iakunin/moneta-concurrent-init:java8 -f Dockerfile-java8 .
+
+docker-push-java8:
+	docker push iakunin/moneta-concurrent-init:java8
