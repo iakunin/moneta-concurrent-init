@@ -45,3 +45,13 @@ To build a jar from sources use following command (you must have [docker](https:
 ```bash
 bash bin/gradle_in_docker.sh clean build
 ```
+
+Then you can run just built jar:
+```bash
+java -jar  build/libs/moneta-concurrent-init.jar
+``` 
+
+Or:
+```bash
+java -jar -Dspring.profiles.active=race-condition build/libs/moneta-concurrent-init.jar
+``` 
